@@ -15,6 +15,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
 		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-static": "^3.0.6",
 		"@sveltejs/kit": "^2.9.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
 		"autoprefixer": "^10.4.20",
@@ -41,7 +42,6 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"@types/jszip": "^3.4.1",
-		"file-saver": "^2.0.5",
 		"jszip": "^3.10.1",
 		"lucide-svelte": "^0.468.0",
 		"mode-watcher": "^0.5.0",
