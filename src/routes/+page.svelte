@@ -2,6 +2,7 @@
 	import * as Accordion from "@/components/ui/accordion";
 	import { Button } from '@/components/ui/button';
 	import { fly, fade } from 'svelte/transition';
+	import { base } from '$app/paths';
 </script>
 
 <div
@@ -28,7 +29,7 @@
 					</p>
 					<ul class="mb-10 flex flex-wrap items-center justify-center gap-5">
 						<li>
-							<Button href="/generate-theme" variant="secondary">
+							<Button href={`${base}/generate-theme`} variant="secondary">
 								Generate Now
 							</Button>
 						</li>
@@ -103,7 +104,7 @@
 							</a>
 
 							<a
-								href="https://github.com/NextJSTemplates/play-nextjs"
+								href="https://svelte.dev/"
 								class="text-white/60 duration-300 ease-in-out hover:text-white"
 								target="_blank"
 								aria-label="svelte"
@@ -182,7 +183,6 @@
           </Accordion.Item>
         </Accordion.Root>
 			</div>
-
 		</div>
 	</div>
 </section>
