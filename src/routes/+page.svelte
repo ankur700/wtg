@@ -1,13 +1,14 @@
 <script>
-	import * as Accordion from "@/components/ui/accordion";
 	import { Button } from '@/components/ui/button';
 	import { fly, fade } from 'svelte/transition';
 	import { base } from '$app/paths';
+	import Steps from '@/components/Steps.svelte';
+	import FaqSection from '@/components/FaqSection.svelte';
 </script>
 
-<div
+<section
 	transition:fly={{ y: 50, duration: 500 }}
-	class="relative max-w-5xl mx-auto rounded-lg overflow-hidden bg-primary-foreground my-16 px-8 py-16 "
+	class="relative mx-auto my-16 max-w-5xl overflow-hidden rounded-lg bg-primary-foreground px-8 py-16"
 >
 	<div class="container">
 		<div class="-mx-4 flex flex-wrap items-center">
@@ -29,15 +30,13 @@
 					</p>
 					<ul class="mb-10 flex flex-wrap items-center justify-center gap-5">
 						<li>
-							<Button href={`${base}/generate-theme`} variant="secondary">
-								Generate Now
-							</Button>
+							<Button href={`${base}/generate-theme`} variant="secondary">Generate Now</Button>
 						</li>
 						<li>
 							<Button
 								href="https://github.com/ankur700/html-to-wordpress-theme-converter"
 								target="_blank"
-                variant="outline"
+								variant="outline"
 							>
 								<svg
 									class="fill-current"
@@ -131,59 +130,8 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<section
-	transition:fade={{ duration: 400 }}
-	class=" relative z-20 overflow-hidden pb-8 pt-20 lg:pb-[50px] lg:pt-[120px]"
->
-	<div class="container max-w-5xl bg-background p-10 rounded-md mx-auto">
-		<div class="-mx-4 flex flex-wrap">
-			<div class="w-full px-4">
-				<div class="mx-auto mb-[60px] max-w-[520px] text-center ">
-					<span class="mb-2 block text-lg font-semibold text-primary"> FAQ </span>
-					<h2
-						class="text-dark mb-3 text-3xl font-bold leading-[1.2] dark:text-white sm:text-4xl md:text-[40px]"
-					>
-						Any Questions? Look Here
-					</h2>
-					<p class="text-body-color dark:text-dark-6 mx-auto max-w-[485px] text-base">
-						There are many variations of passages of Lorem Ipsum available but the majority have
-						suffered alteration in some form.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class=" max-w-2xl mx-auto flex flex-wrap">
-			<div class="w-full">
-        <Accordion.Root type="single">
-          <Accordion.Item value="item-1">
-            <Accordion.Trigger>Is TailGrids Well-documented?</Accordion.Trigger>
-            <Accordion.Content>
-              It takes 2-3 weeks to get your first blog post ready. That includes the in-depth
-							research & creation of your monthly content ui/ux strategy that we do writing your
-							first blog post.
-            </Accordion.Content>
-          </Accordion.Item>
-          <Accordion.Item value="item-2">
-            <Accordion.Trigger>Is TailGrids Well-documented?</Accordion.Trigger>
-            <Accordion.Content>
-              It takes 2-3 weeks to get your first blog post ready. That includes the in-depth
-							research & creation of your monthly content ui/ux strategy that we do writing your
-							first blog post.
-            </Accordion.Content>
-          </Accordion.Item>
-          <Accordion.Item value="item-3">
-            <Accordion.Trigger>Is TailGrids Well-documented?</Accordion.Trigger>
-            <Accordion.Content>
-              It takes 2-3 weeks to get your first blog post ready. That includes the in-depth
-							research & creation of your monthly content ui/ux strategy that we do writing your
-							first blog post.
-            </Accordion.Content>
-          </Accordion.Item>
-        </Accordion.Root>
-			</div>
-		</div>
-	</div>
 </section>
 
+<Steps />
+
+<FaqSection />

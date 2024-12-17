@@ -84,7 +84,7 @@
 				<span class="text-sm text-foreground sm:text-center">© {new Date().getFullYear()} <a href="https://ankursingh.com.np" target="_blank" class="hover:underline">Ankur Singh</a>. All Rights Reserved.
 				</span>
 				<div class="flex mt-4 sm:justify-center sm:mt-0">
-						<a href="https://github.com/ankur700/html-to-wordpress-theme-converter" class="text-foreground hover:text-gray-900 dark:hover:text-white ms-5">
+						<a href="https://github.com/ankur700" class="text-foreground hover:text-gray-900 dark:hover:text-white ms-5">
 								<Github class="w-5 h-5" />
 								<span class="sr-only">GitHub</span>
 						</a>
