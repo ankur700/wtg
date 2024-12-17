@@ -1,13 +1,14 @@
 <script>
 	import * as Accordion from "@/components/ui/accordion";
 	import { Button } from '@/components/ui/button';
+	import { fly, fade } from 'svelte/transition';
 </script>
 
 <div
-	id="home"
-	class="relative max-w-5xl mx-auto rounded-lg overflow-hidden bg-primary-foreground my-16 pb-8 pt-[120px] md:pt-[130px] lg:pt-[160px]"
+	transition:fly={{ y: 50, duration: 500 }}
+	class="relative max-w-5xl mx-auto rounded-lg overflow-hidden bg-primary-foreground my-16 px-8 py-16 "
 >
-	<div class="container ">
+	<div class="container">
 		<div class="-mx-4 flex flex-wrap items-center">
 			<div class="w-full px-4">
 				<div
@@ -132,12 +133,13 @@
 </div>
 
 <section
-	class=" relative z-20 overflow-hidden bg-background pb-8 pt-20 lg:pb-[50px] lg:pt-[120px]"
+	transition:fade={{ duration: 400 }}
+	class=" relative z-20 overflow-hidden pb-8 pt-20 lg:pb-[50px] lg:pt-[120px]"
 >
-	<div class="container max-w-5xl bg-secondary p-10 rounded-md mx-auto">
+	<div class="container max-w-5xl bg-background p-10 rounded-md mx-auto">
 		<div class="-mx-4 flex flex-wrap">
 			<div class="w-full px-4">
-				<div class="mx-auto mb-[60px] max-w-[520px] text-center">
+				<div class="mx-auto mb-[60px] max-w-[520px] text-center ">
 					<span class="mb-2 block text-lg font-semibold text-primary"> FAQ </span>
 					<h2
 						class="text-dark mb-3 text-3xl font-bold leading-[1.2] dark:text-white sm:text-4xl md:text-[40px]"

@@ -4,6 +4,7 @@
 	import Moon from 'lucide-svelte/icons/moon';
 	import Sun from 'lucide-svelte/icons/sun';
 	import { ModeWatcher, toggleMode } from 'mode-watcher';
+	import { base } from '$app/paths';
 	import '../app.css';
 	let { children } = $props();
 </script>
@@ -13,7 +14,7 @@
 	<div class="container mx-auto max-w-3xl">
 		<div class="relative -mx-4 flex items-center justify-start">
 			<div class="w-20 max-w-full px-4">
-				<a href="/" aria-label="logo" class="navbar-logo block w-full py-5">
+				<a href={`${base}/`} aria-label="logo" class="navbar-logo block w-full py-5">
 					<div class="align-center flex h-10 w-10 justify-center border border-slate-900 dark:border-slate-50 p-2">
 						<div class="h-5 w-5 rounded-full bg-primary"></div>
 					</div>
@@ -37,7 +38,7 @@
 						<ul class="blcok lg:flex 2xl:ml-20">
 							<li class="group relative">
 								<Button
-									href="/"
+									href={`${base}/`}
 									variant="link"
 
 								>
@@ -46,7 +47,7 @@
 							</li>
 							<li class="group relative">
 								<Button
-									href="/generate-theme"
+									href={`${base}/generate-theme`}
 									variant="link"
 								>
 									Generate Theme
@@ -87,7 +88,7 @@
 								<Github class="w-5 h-5" />
 								<span class="sr-only">GitHub</span>
 						</a>
-						<a href="https://linkedin.com/in/ankur700" class="text-foreground hover:text-gray-900 dark:hover:text-white ms-5">
+						<a href="https://www.linkedin.com/in/ankur-singh-9204b161/" class="text-foreground hover:text-gray-900 dark:hover:text-white ms-5">
 								<Linkedin class="w-5 h-5" />
 								<span class="sr-only">Linkedin</span>
 						</a>
