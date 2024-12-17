@@ -34,7 +34,7 @@
 						</li>
 						<li>
 							<Button
-								href="https://github.com/ankur700/html-to-wordpress-theme-converter"
+								href="https://github.com/ankur700/wtg"
 								target="_blank"
 								variant="outline"
 							>
