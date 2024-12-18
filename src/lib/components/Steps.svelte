@@ -33,33 +33,40 @@
 	];
 </script>
 
-<section class="mx-auto rounded-md max-w-5xl bg-primary-foreground p-4 pb-8">
+<section class="mx-auto max-w-5xl rounded-md bg-primary-foreground p-4 pb-8">
 	<div class="mx-auto h-max max-w-7xl px-6 md:px-12 xl:px-6">
 		<div class="md:w-2/3 lg:w-full">
 			<h2 class="my-8 text-2xl font-bold text-foreground md:text-4xl">How to start?</h2>
-        <p class="text-secondary-foreground">
-          Create your html template and structure it like this:
-        </p>
-
-        <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
-          <li>template folder
-              <ul class=" ml-6 list-disc [&>li]:mt-2">
-
-                <li>index.html</li>
-                <li>main.css</li>
-                <li>main.js</li>
-                <li>assets folder
-                  <ul class="ml-6 list-disc [&>li]:mt-2">
-                    <li> additional css files and js files</li>
-                  </ul>
-                </li>
-              </ul>
-          </li>
-
-        </ul>
 			<p class="text-secondary-foreground">
-				Just follow the process to get you started as quickly as possible. This will only generate a classic wordpress theme for you. You will still need to convert your navigation menu and any other customizations. For more info check the wordpress <a href="https://developer.wordpress.org/themes/getting-started/" class="text-blue-600 underline hover:opacity-80" target="_blank" rel="noopener noreferrer"> documentation.</a>
+				Just follow the process to get you started as quickly as possible. This will only generate a
+				classic wordpress theme for you. You will still need to convert your navigation menu and any
+				other customizations. For more info check the wordpress <a
+					href="https://developer.wordpress.org/themes/getting-started/"
+					class="text-blue-600 underline hover:opacity-80"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					documentation.</a
+				>
 			</p>
+			<p class="text-secondary-foreground mt-3">Create your html template and structure it like this:</p>
+
+			<ul class="my-2 ml-6 list-disc [&>li]:mt-2">
+				<li>
+					template folder
+					<ul class="ml-6 list-disc [&>li]:mt-2">
+						<li>index.html</li>
+						<li>main.css</li>	
+						<li>main.js</li>
+						<li>
+							assets folder
+							<ul class="ml-6 list-disc [&>li]:mt-2">
+								<li>additional css files and js files</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 		<div
 			class="mt-16 grid divide-x divide-y divide-slate-700 overflow-hidden rounded-3xl border border-slate-700 text-slate-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4"
