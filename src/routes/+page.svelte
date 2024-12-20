@@ -33,11 +33,7 @@
 							<Button href={`${base}/generate-theme`} variant="secondary">Generate Now</Button>
 						</li>
 						<li>
-							<Button
-								href="https://github.com/ankur700/wtg"
-								target="_blank"
-								variant="outline"
-							>
+							<Button href="https://github.com/ankur700/wtg" target="_blank" variant="outline">
 								<svg
 									class="fill-current"
 									width="24"
