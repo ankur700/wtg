@@ -78,7 +78,7 @@
 					jsContent,
 					additionalCssFiles,
 					additionalJsFiles,
-					screenshotFile,
+					screenshotFile
 				);
 
 				// Create download link
@@ -105,7 +105,7 @@
 
 	function handleImageUpload(event: Event & { currentTarget: HTMLInputElement }) {
 		const image = event.currentTarget.files?.item(0);
-		if(image){
+		if (image) {
 			screenshotFile = image;
 			screenshotUrl = URL.createObjectURL(image);
 		}
@@ -117,7 +117,6 @@
 		<Loading />
 	{:else}
 		<div class="flex justify-between gap-2">
-
 			<div>
 				<Label for="html-file">HTML File</Label>
 				<Input
@@ -167,37 +166,46 @@
 			<div class="flex w-full items-center justify-center">
 				<Label
 					for="dropzone-file"
-					class="flex relative aspect-video w-full mx-auto cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-primary-300 hover:bg-primary-100 dark:border-primary-600 bg-primary-foreground dark:hover:border-primary-500 dark:hover:bg-primary-600"
+					class="border-primary-300 hover:bg-primary-100 dark:border-primary-600 dark:hover:border-primary-500 dark:hover:bg-primary-600 relative mx-auto flex aspect-video w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed bg-primary-foreground"
 				>
-				{#if screenshotUrl}
-					<img class="w-full h-full" src={screenshotUrl} alt="Screenshot" />
-					<Button class="absolute top-2 right-2 z-50" variant="destructive" size='icon' onclick={() => (screenshotUrl = null)}><XCircle class="w-4 h-4" /></Button>
-				{:else}
-					<div class="flex flex-col items-center justify-center pb-6 pt-5">
-						<svg
-							class="mb-4 h-8 w-8 text-foreground"
-							aria-hidden="true"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 20 16"
+					{#if screenshotUrl}
+						<img class="h-full w-full" src={screenshotUrl} alt="Screenshot" />
+						<Button
+							class="absolute right-2 top-2 z-50"
+							variant="destructive"
+							size="icon"
+							onclick={() => (screenshotUrl = null)}><XCircle class="h-4 w-4" /></Button
 						>
-							<path
-								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-							/>
-						</svg>
-						<p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-							<span class="font-semibold">Click to upload</span> or drag and drop
-						</p>
-						<p class="text-xs text-gray-500 dark:text-gray-400">
-							 PNG or JPG (SIZE. 1200x900px)
-						</p>
-					</div>
-					<input id="dropzone-file" oninput={(e) => handleImageUpload(e)} type="file" accept=".png, .jpg" class="hidden" />
-				{/if}
+					{:else}
+						<div class="flex flex-col items-center justify-center pb-6 pt-5">
+							<svg
+								class="mb-4 h-8 w-8 text-foreground"
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 20 16"
+							>
+								<path
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+								/>
+							</svg>
+							<p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+								<span class="font-semibold">Click to upload</span> or drag and drop
+							</p>
+							<p class="text-xs text-gray-500 dark:text-gray-400">PNG or JPG (SIZE. 1200x900px)</p>
+						</div>
+						<input
+							id="dropzone-file"
+							oninput={(e) => handleImageUpload(e)}
+							type="file"
+							accept=".png, .jpg"
+							class="hidden"
+						/>
+					{/if}
 				</Label>
 			</div>
 		</div>

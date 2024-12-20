@@ -1,6 +1,6 @@
 <script>
 	import { Button } from '@/components/ui/button';
-	import { fly, fade } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import { base } from '$app/paths';
 	import Steps from '@/components/Steps.svelte';
 	import FaqSection from '@/components/FaqSection.svelte';

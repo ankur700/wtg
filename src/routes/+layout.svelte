@@ -10,12 +10,14 @@
 </script>
 
 <ModeWatcher />
-<div class="ud-header sticky top-0 z-40 flex max-w-5xl mx-auto items-center backdrop-blur-lg">
+<div class="ud-header sticky top-0 z-40 mx-auto flex max-w-5xl items-center backdrop-blur-lg">
 	<div class="container mx-auto max-w-3xl">
 		<div class="relative -mx-4 flex items-center justify-start">
 			<div class="w-20 max-w-full px-4">
 				<a href={`${base}/`} aria-label="logo" class="navbar-logo block w-full py-5">
-					<div class="align-center flex h-10 w-10 justify-center border border-slate-900 dark:border-slate-50 p-2">
+					<div
+						class="align-center flex h-10 w-10 justify-center border border-slate-900 p-2 dark:border-slate-50"
+					>
 						<div class="h-5 w-5 rounded-full bg-primary"></div>
 					</div>
 				</a>
@@ -37,21 +39,10 @@
 					>
 						<ul class="blcok lg:flex 2xl:ml-20">
 							<li class="group relative">
-								<Button
-									href={`${base}/`}
-									variant="link"
-
-								>
-									Home
-							</Button>
+								<Button href={`${base}/`} variant="link">Home</Button>
 							</li>
 							<li class="group relative">
-								<Button
-									href={`${base}/generate-theme`}
-									variant="link"
-								>
-									Generate Theme
-							</Button>
+								<Button href={`${base}/generate-theme`} variant="link">Generate Theme</Button>
 							</li>
 						</ul>
 					</nav>
@@ -78,21 +69,30 @@
 
 {@render children()}
 
-<footer class="bg-primary-foreground dark:bg-gray-900 max-w-5xl px-8 mx-auto">
+<footer class="mx-auto max-w-5xl bg-primary-foreground px-8 dark:bg-gray-900">
 	<div class="mx-auto w-full max-w-screen-xl p-4">
 		<div class="sm:flex sm:items-center sm:justify-between">
-				<span class="text-sm text-foreground sm:text-center">© {new Date().getFullYear()} <a href="https://ankursingh.com.np" target="_blank" class="hover:underline">Ankur Singh</a>. All Rights Reserved.
-				</span>
-				<div class="flex mt-4 sm:justify-center sm:mt-0">
-						<a href="https://github.com/ankur700" class="text-foreground hover:text-gray-900 dark:hover:text-white ms-5">
-								<Github class="w-5 h-5" />
-								<span class="sr-only">GitHub</span>
-						</a>
-						<a href="https://www.linkedin.com/in/ankur-singh-9204b161/" class="text-foreground hover:text-gray-900 dark:hover:text-white ms-5">
-								<Linkedin class="w-5 h-5" />
-								<span class="sr-only">Linkedin</span>
-						</a>
-				</div>
+			<span class="text-sm text-foreground sm:text-center"
+				>© {new Date().getFullYear()}
+				<a href="https://ankursingh.com.np" target="_blank" class="hover:underline">Ankur Singh</a>.
+				All Rights Reserved.
+			</span>
+			<div class="mt-4 flex sm:mt-0 sm:justify-center">
+				<a
+					href="https://github.com/ankur700"
+					class="ms-5 text-foreground hover:text-gray-900 dark:hover:text-white"
+				>
+					<Github class="h-5 w-5" />
+					<span class="sr-only">GitHub</span>
+				</a>
+				<a
+					href="https://www.linkedin.com/in/ankur-singh-9204b161/"
+					class="ms-5 text-foreground hover:text-gray-900 dark:hover:text-white"
+				>
+					<Linkedin class="h-5 w-5" />
+					<span class="sr-only">Linkedin</span>
+				</a>
+			</div>
 		</div>
 	</div>
 </footer>

@@ -3,18 +3,19 @@
 	import * as Accordion from '@/components/ui/accordion';
 	import { fade } from 'svelte/transition';
 
-  const FAQS = [
-    {
+	const FAQS = [
+		{
 			id: 1,
-      title: 'How can i generate block themes?',
-      content: 'Currently we don\'t have such feature, but we are working on it.',
-    },
-    {
+			title: 'How can i generate block themes?',
+			content: "Currently we don't have such feature, but we are working on it."
+		},
+		{
 			id: 2,
-      title: 'My website is not working. What should I do?',
-      content: 'Check if you have included all required files when generating theme including any external library files like bootstrap, swiper etc. If you have included all required files, then please contact us. We will look into it.',
-    },
-  ]
+			title: 'My website is not working. What should I do?',
+			content:
+				'Check if you have included all required files when generating theme including any external library files like bootstrap, swiper etc. If you have included all required files, then please contact us. We will look into it.'
+		}
+	];
 </script>
 
 <section
@@ -39,10 +40,10 @@
 		</div>
 		<div class=" mx-auto flex max-w-2xl flex-wrap">
 			<div class="w-full">
-				<Accordion.Root>
-          {#each FAQS as faq}
-            <FAQ title={faq.title} content={faq.content} id={faq.id} />
-          {/each}
+				<Accordion.Root type="single">
+					{#each FAQS as faq}
+						<FAQ title={faq.title} content={faq.content} id={faq.id} />
+					{/each}
 				</Accordion.Root>
 			</div>
 		</div>

@@ -1,4 +1,3 @@
-
 import JSZip from 'jszip';
 
 export interface WordPressThemeConfig {
@@ -16,28 +15,25 @@ export interface WordPressThemeConfig {
 }
 
 export class ThemeGenerator {
-
 	private readonly PRIORITY_LIBS = [
 		{ name: 'jquery', regex: /jquery/i },
 		{ name: 'bootstrap', regex: /bootstrap/i }
-];
+	];
 
-prioritizeJsFiles(files: File[]): File[] {
+	prioritizeJsFiles(files: File[]): File[] {
 		// Separate files into priority and standard groups
 		const priorityFiles: File[] = [];
 		const standardFiles: File[] = [];
 
 		// Categorize files
-		files.forEach(file => {
-				const isPriorityFile = this.PRIORITY_LIBS.some(lib =>
-						lib.regex.test(file.name)
-				);
+		files.forEach((file) => {
+			const isPriorityFile = this.PRIORITY_LIBS.some((lib) => lib.regex.test(file.name));
 
-				if (isPriorityFile) {
-						priorityFiles.push(file);
-				} else {
-						standardFiles.push(file);
-				}
+			if (isPriorityFile) {
+				priorityFiles.push(file);
+			} else {
+				standardFiles.push(file);
+			}
 		});
 
 		// Sort priority files by predefined order
@@ -45,13 +41,13 @@ prioritizeJsFiles(files: File[]): File[] {
 
 		// Combine priority files with standard files
 		return [...sortedPriorityFiles, ...standardFiles];
-}
+	}
 
-private sortPriorityFiles(files: File[]): File[] {
-		return this.PRIORITY_LIBS
-				.map(lib => files.find(file => lib.regex.test(file.name)))
-				.filter((file): file is File => file !== undefined);
-}
+	private sortPriorityFiles(files: File[]): File[] {
+		return this.PRIORITY_LIBS.map((lib) => files.find((file) => lib.regex.test(file.name))).filter(
+			(file): file is File => file !== undefined
+		);
+	}
 
 	private defaultConfig: WordPressThemeConfig = {
 		name: 'Generated Theme',
@@ -64,18 +60,17 @@ private sortPriorityFiles(files: File[]): File[] {
 		RequiresPhp: '7.2',
 		License: 'GNU General Public License v2 or later',
 		LicenseUri: 'http://www.gnu.org/licenses/gpl-2.0.html',
-		TextDomain: 'generatedtheme',
+		TextDomain: 'generatedtheme'
 	};
 
-
-  async generateTheme(
+	async generateTheme(
 		htmlContent: string,
 		cssContent: string,
 		jsContent: string,
 		additionalCssFiles: File[] = [],
 		additionalJsFiles: File[] = [],
 		screenshotFile?: File | null,
-		config?: Partial<WordPressThemeConfig>,
+		config?: Partial<WordPressThemeConfig>
 	): Promise<Blob | undefined> {
 		// Merge default and provided config
 		const themeConfig = { ...this.defaultConfig, ...config };
@@ -101,26 +96,27 @@ private sortPriorityFiles(files: File[]): File[] {
 		}
 
 		// Add additional CSS and JS files
-		for(const file of additionalCssFiles) {
+		for (const file of additionalCssFiles) {
 			const fileContent = await file.text();
-      if(fileContent){
-        themeFolder?.file(`assets/css/${file.name}`, fileContent);
-      }
-		};
-		for(const file of additionalJsFiles) {
+			if (fileContent) {
+				themeFolder?.file(`assets/css/${file.name}`, fileContent);
+			}
+		}
+		for (const file of additionalJsFiles) {
 			const fileContent = await file.text();
-      if(fileContent){
-        themeFolder?.file(`assets/js/${file.name}`, fileContent);
-      }
-		};
+			if (fileContent) {
+				themeFolder?.file(`assets/js/${file.name}`, fileContent);
+			}
+		}
 
 		// Update functions.php to enqueue additional files
-		const functionsPhpContent = this.generateFunctionsPhp(additionalCssFiles, this.prioritizeJsFiles(additionalJsFiles));
+		const functionsPhpContent = this.generateFunctionsPhp(
+			additionalCssFiles,
+			this.prioritizeJsFiles(additionalJsFiles)
+		);
 
 		// Add processed files
 		themeFolder.file('index.php', this.processHtml(htmlContent));
-
-
 
 		// Add additional theme support functions
 		themeFolder.file('functions.php', this.generateFunctionsPhp());
@@ -130,9 +126,7 @@ private sortPriorityFiles(files: File[]): File[] {
 		themeFolder.file('functions.php', functionsPhpContent);
 
 		// Generate the zip
-		return themeFolder
-			?.generateAsync({ type: 'blob' });
-
+		return themeFolder?.generateAsync({ type: 'blob' });
 	}
 
 	private generateStyleCss(config: WordPressThemeConfig): string {
@@ -211,44 +205,44 @@ private sortPriorityFiles(files: File[]): File[] {
 	}
 
 	private processHtml(html: string): string {
-    // Create a DOM parser
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
+		// Create a DOM parser
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(html, 'text/html');
 
-    // Remove all link tags (CSS) from head
-    const headLinks = doc.head.querySelectorAll('link');
-    headLinks.forEach(link => link.remove());
+		// Remove all link tags (CSS) from head
+		const headLinks = doc.head.querySelectorAll('link');
+		headLinks.forEach((link) => link.remove());
 
-    // Remove all script tags from head
-    const headScripts = doc.head.querySelectorAll('script');
-    headScripts.forEach(script => script.remove());
+		// Remove all script tags from head
+		const headScripts = doc.head.querySelectorAll('script');
+		headScripts.forEach((script) => script.remove());
 
-    // Remove all script tags from footer
-    const footerScripts = doc.querySelectorAll('footer script, body > script:last-child');
-    footerScripts.forEach(script => script.remove());
+		// Remove all script tags from footer
+		const footerScripts = doc.querySelectorAll('footer script, body > script:last-child');
+		footerScripts.forEach((script) => script.remove());
 
-    // Convert back to string, preserving WordPress theme structure
-    let processedHtml = doc.documentElement.innerHTML;
+		// Convert back to string, preserving WordPress theme structure
+		let processedHtml = doc.documentElement.innerHTML;
 
-    // Wrap with WordPress theme tags
-    processedHtml = `<?php get_header(); ?>\n<div id="primary" class="content-area">\n<main id="main" class="site-main">\n${processedHtml}\n</main>\n</div>\n<?php get_footer(); ?>`;
+		// Wrap with WordPress theme tags
+		processedHtml = `<?php get_header(); ?>\n<div id="primary" class="content-area">\n<main id="main" class="site-main">\n${processedHtml}\n</main>\n</div>\n<?php get_footer(); ?>`;
 
-    return processedHtml;
-}
+		return processedHtml;
+	}
 
-// Utility function to clean HTML (optional, but can be helpful)
-private cleanHtml(html: string): string {
-	// Remove comments
-	html = html.replace(/<!--[\s\S]*?-->/g, '');
+	// Utility function to clean HTML (optional, but can be helpful)
+	private cleanHtml(html: string): string {
+		// Remove comments
+		html = html.replace(/<!--[\s\S]*?-->/g, '');
 
-	// Remove empty attributes
-	html = html.replace(/\s+[\w-]+=['"](['"])\1/g, '');
+		// Remove empty attributes
+		html = html.replace(/\s+[\w-]+=['"](['"])\1/g, '');
 
-	// Trim excessive whitespace
-	html = html.replace(/\s+/g, ' ').trim();
+		// Trim excessive whitespace
+		html = html.replace(/\s+/g, ' ').trim();
 
-	return html;
-}
+		return html;
+	}
 
 	private processCss(css: string): string {
 		// Add WordPress-specific resets or modifications if needed
@@ -258,8 +252,8 @@ private cleanHtml(html: string): string {
 	private processJs(js: string): string {
 		// Wrap JavaScript for WordPress compatibility
 		// return `(function($) {
-    //   ${js}
-    // })(jQuery);`;
+		//   ${js}
+		// })(jQuery);`;
 		return js;
 	}
 
@@ -314,7 +308,6 @@ private cleanHtml(html: string): string {
 		additionalCssFiles: File[] = [],
 		additionalJsFiles: File[] = []
 	): string {
-
 		// Base enqueue functions
 		const functionsContent = `<?php
 
@@ -496,14 +489,11 @@ private cleanHtml(html: string): string {
       function theme_enqueue_scripts() {
       // Additional JS files
       ${additionalJsFiles
-				.map(
-					(file, index) =>
-					{
-						if (file.name.includes('jquery')) {
-							return	`wp_enqueue_script('additional-script-${index}', get_template_directory_uri() . '/assets/js/${file.name}', array('jquery'), '', true);`
-						}
+				.map((file, index) => {
+					if (file.name.includes('jquery')) {
+						return `wp_enqueue_script('additional-script-${index}', get_template_directory_uri() . '/assets/js/${file.name}', array('jquery'), '', true);`;
 					}
-				)
+				})
 				.join('\n')}
       }
       add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
@@ -540,5 +530,4 @@ private cleanHtml(html: string): string {
 
 		return functionsContent;
 	}
-
 }

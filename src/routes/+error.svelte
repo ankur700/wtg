@@ -2,7 +2,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { ArrowLeft } from 'lucide-svelte';
 	import { base } from '$app/paths';
-  import { page } from '$app/state';
+	import { page } from '$app/state';
 </script>
 
 <div
@@ -13,9 +13,13 @@
 	>
 		<div class="w-full md:w-1/2">
 			<div class="mb-4 font-light text-muted-foreground md:mb-10">
-				<h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 dark:text-primary-500">{page.status}</h1>
+				<h1
+					class="text-primary-600 dark:text-primary-500 mb-4 text-7xl font-extrabold tracking-tight lg:text-9xl"
+				>
+					{page.status}
+				</h1>
 				<h3 class="mb-4 text-3xl font-black uppercase text-foreground lg:text-5xl">
-					{page.error.message}
+					{page.error?.message}
 				</h3>
 				<p>You seem to be lost! Sorry, the page you are looking for could not be found.</p>
 			</div>

@@ -49,14 +49,16 @@
 					documentation.</a
 				>
 			</p>
-			<p class="text-secondary-foreground mt-3">Create your html template and structure it like this:</p>
+			<p class="mt-3 text-secondary-foreground">
+				Create your html template and structure it like this:
+			</p>
 
 			<ul class="my-2 ml-6 list-disc [&>li]:mt-2">
 				<li>
 					template folder
 					<ul class="ml-6 list-disc [&>li]:mt-2">
 						<li>index.html</li>
-						<li>main.css</li>	
+						<li>main.css</li>
 						<li>main.js</li>
 						<li>
 							assets folder
