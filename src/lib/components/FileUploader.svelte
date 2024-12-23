@@ -17,6 +17,8 @@
 	let screenshotUrl: string | null = $state(null);
 	let isProcessing: boolean = $state(false);
 	let downloadLink: string | null = $state(null);
+	let showAlert: boolean = $state(false);
+	let alert: { title: string, message: string } | null = $state(null);
 
 	onMount(() => {
 		themeGenerator = new ThemeGenerator();
@@ -57,7 +59,16 @@
 	}
 
 	async function handleFileSelection() {
+		if (!htmlFile && !cssFile && !jsFile) {
+			showAlert = true;
+			alert = {
+				title: 'Are you sure you selected all the required files?',
+				message: 'Please select all the required files and try again.'
+			};
+		}
+
 		if (htmlFile && cssFile && jsFile) {
+
 			isProcessing = true;
 			downloadLink = null;
 
@@ -87,7 +98,8 @@
 				}
 			} catch (error) {
 				console.error('Theme generation error:', error);
-				alert('Failed to generate WordPress theme');
+				showAlert = true;
+				alert = { title: 'Error generating theme', message: 'something went wrong' };
 			} finally {
 				isProcessing = false;
 			}
@@ -113,6 +125,21 @@
 </script>
 
 <div class="file-uploader mx-auto flex max-w-xl flex-col gap-4">
+	{#if showAlert && alert}
+		<AlertDialog.Root bind:open={showAlert}>
+			<AlertDialog.Content>
+				<AlertDialog.Header>
+					<AlertDialog.Title>{alert.title}</AlertDialog.Title>
+					<AlertDialog.Description>
+						{alert.message}
+					</AlertDialog.Description>
+				</AlertDialog.Header>
+				<AlertDialog.Footer>
+					<AlertDialog.Cancel>Close</AlertDialog.Cancel>
+				</AlertDialog.Footer>
+			</AlertDialog.Content>
+		</AlertDialog.Root>
+	{/if}
 	{#if isProcessing}
 		<Loading />
 	{:else}
@@ -163,6 +190,7 @@
 			</div>
 		</div>
 		<div>
+			<p class="mb-2 text-sm">Screenshot for your theme</p>
 			<div class="flex w-full items-center justify-center">
 				<Label
 					for="dropzone-file"
@@ -210,7 +238,6 @@
 			</div>
 		</div>
 		<div class="flex gap-2">
-			<Button variant="secondary" onclick={handleFileSelection}>Convert to WordPress Theme</Button>
 			{#if downloadLink}
 				<Button
 					role="button"
@@ -220,6 +247,8 @@
 				>
 					Download WordPress Theme
 				</Button>
+			{:else}
+				<Button variant="secondary" onclick={handleFileSelection}>Generate WordPress Theme</Button>
 			{/if}
 		</div>
 	{/if}
