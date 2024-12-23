@@ -6,6 +6,7 @@
 	import { XCircle } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import Loading from './Loading.svelte';
+	import * as AlertDialog from '@/components/ui/alert-dialog'
 
 	let themeGenerator: ThemeGenerator;
 	let htmlFile: File | null = $state(null);
