@@ -1,4 +1,4 @@
-export const FAQS = [
+export const FAQS: ({ id: number; title: string; content: string })[] = [
 	{
 		id: 1,
 		title: 'How can i generate block themes?',
@@ -12,7 +12,7 @@ export const FAQS = [
 	}
 ];
 
-export const Steps = [
+export const Steps: ({ id: number; title: string; description: string; svgPaths: string[]}[]) = [
 	{
 		id: 1,
 		title: 'Prerequisite',

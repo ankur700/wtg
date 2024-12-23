@@ -2,7 +2,7 @@
 	import FAQ from '@/components/FAQ.svelte';
 	import { Root } from '@/components/ui/accordion';
 	import { fly } from 'svelte/transition';
-	import { FAQS } from '@/utils/constants.js';
+	import { FAQS } from '@/utils/constants.ts';
 </script>
 
 <section

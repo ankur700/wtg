@@ -1,6 +1,6 @@
 <script>
 	import { fly } from 'svelte/transition';
-	import { Steps } from '@/utils/constants.js';
+	import { Steps } from '@/utils/constants.ts';
 </script>
 
 <section transition:fly={{ y: 50, duration: 500 }} class="mx-auto py-16">
