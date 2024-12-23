@@ -1,4 +1,5 @@
 <script>
+	import { fly } from 'svelte/transition';
 	const steps = [
 		{
 			id: 1,
@@ -33,8 +34,10 @@
 	];
 </script>
 
-<section class="mx-auto max-w-5xl rounded-md bg-primary-foreground p-4 pb-8">
-	<div class="mx-auto h-max max-w-7xl px-6 md:px-12 xl:px-6">
+<section
+	transition:fly={{ y: 50, duration: 500 }}
+	class="mx-auto py-16">
+	<div class="container mx-auto max-w-5xl rounded-md bg-primary-foreground p-10">
 		<div class="md:w-2/3 lg:w-full">
 			<h2 class="my-8 text-2xl font-bold text-foreground md:text-4xl">How to start?</h2>
 			<p class="text-secondary-foreground">
@@ -77,7 +80,7 @@
 				<div
 					class="group relative bg-secondary backdrop-blur-md transition hover:z-[1] hover:shadow-2xl hover:shadow-slate-600/10"
 				>
-					<div class="relative space-y-8 p-8 py-12">
+					<div class="relative space-y-8 p-8 py-12 text-primary">
 						<svg
 							stroke="currentColor"
 							fill="none"
@@ -85,8 +88,6 @@
 							viewBox="0 0 24 24"
 							stroke-linecap="round"
 							stroke-linejoin="round"
-							color="white"
-							style="color:white"
 							height="50"
 							width="50"
 							xmlns="http://www.w3.org/2000/svg"

@@ -2,20 +2,17 @@
 	import { Button } from '@/components/ui/button';
 	import { fly } from 'svelte/transition';
 	import { base } from '$app/paths';
-	import Steps from '@/components/Steps.svelte';
-	import FaqSection from '@/components/FaqSection.svelte';
 </script>
 
 <section
 	transition:fly={{ y: 50, duration: 500 }}
-	class="relative mx-auto my-16 max-w-5xl overflow-hidden rounded-lg bg-primary-foreground px-8 py-16"
+	class="relative mx-auto my-16 max-w-5xl overflow-hidden rounded-lg bg-secondary px-8 py-16"
 >
 	<div class="container">
 		<div class="-mx-4 flex flex-wrap items-center">
 			<div class="w-full px-4">
 				<div
-					class="hero-content wow fadeInUp mx-auto max-w-[780px] text-center"
-					data-wow-delay=".2s"
+					class="hero-content mx-auto max-w-[780px] text-center"
 				>
 					<h1
 						class="mb-6 text-3xl font-bold leading-snug text-secondary-foreground sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]"
@@ -30,7 +27,7 @@
 					</p>
 					<ul class="mb-10 flex flex-wrap items-center justify-center gap-5">
 						<li>
-							<Button href={`${base}/generate-theme`} variant="secondary">Generate Now</Button>
+							<Button href={`${base}/generate-theme`} variant="default">Generate Now</Button>
 						</li>
 						<li>
 							<Button href="https://github.com/ankur700/wtg" target="_blank" variant="outline">
@@ -62,8 +59,7 @@
 							Built with latest technology
 						</p>
 						<div
-							class="wow fadeInUp flex items-center justify-center gap-4 text-center"
-							data-wow-delay=".3s"
+							class="flex items-center justify-center gap-4 text-center"
 						>
 							<a
 								href="https://github.com/TailGrids/play-tailwind/"
@@ -128,6 +124,4 @@
 	</div>
 </section>
 
-<Steps />
 
-<FaqSection />

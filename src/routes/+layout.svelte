@@ -42,6 +42,12 @@
 								<Button href={`${base}/`} variant="link">Home</Button>
 							</li>
 							<li class="group relative">
+								<Button href={`${base}/steps`} variant="link">How to</Button>
+							</li>
+							<li class="group relative">
+								<Button href={`${base}/faqs`} variant="link">FAQ</Button>
+							</li>
+							<li class="group relative">
 								<Button href={`${base}/generate-theme`} variant="link">Generate Theme</Button>
 							</li>
 						</ul>
@@ -69,7 +75,7 @@
 
 {@render children()}
 
-<footer class="mx-auto max-w-5xl bg-primary-foreground px-8 dark:bg-gray-900">
+<footer class="mx-auto max-w-5xl bg-primary-foreground px-8 ">
 	<div class="mx-auto w-full max-w-screen-xl p-4">
 		<div class="sm:flex sm:items-center sm:justify-between">
 			<span class="text-sm text-foreground sm:text-center"

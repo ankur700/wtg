@@ -1,7 +1,7 @@
 <script>
 	import FAQ from '@/components/FAQ.svelte';
 	import * as Accordion from '@/components/ui/accordion';
-	import { fade } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	const FAQS = [
 		{
@@ -19,8 +19,8 @@
 </script>
 
 <section
-	transition:fade={{ duration: 400 }}
-	class=" relative z-20 overflow-hidden pb-8 pt-20 lg:pb-[50px] lg:pt-[120px]"
+	transition:fly={{ y: 50, duration: 500 }}
+	class=" relative overflow-hidden pt-16 min-h-screen"
 >
 	<div class="container mx-auto max-w-5xl rounded-md bg-background p-10">
 		<div class="-mx-4 flex flex-wrap">
