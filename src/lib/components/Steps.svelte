@@ -1,42 +1,9 @@
 <script>
 	import { fly } from 'svelte/transition';
-	const steps = [
-		{
-			id: 1,
-			title: 'Prerequisite',
-			description:
-				"Remove any loading screens from index.html file, also optionally remove the links to css files and js files from the index.html file. Stylesheets and scripts loaded from cdn's should be downloaded in advance.",
-			svgPaths: ['M10 10l2 -2v8']
-		},
-		{
-			id: 2,
-			title: 'Upload',
-			description:
-				'Head to generate theme page and upload your index.html file, main.css file, main.js file and other css and js files(custom js libraries and custom css libraries files) according to the input label.',
-			svgPaths: ['M10 8h3a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 0 -1 1v2a1 1 0 0 0 1 1h3']
-		},
-		{
-			id: 3,
-			title: 'Convert',
-			description:
-				'Generate your wordpress theme by clicking the generate button and download the theme zip file.',
-			svgPaths: [
-				'M10 9a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1'
-			]
-		},
-		{
-			id: 4,
-			title: 'Install',
-			description:
-				'Install your wordpress theme by opening wordpress admin panel and click appearance -> themes and click the upload button, now select the theme zip file and click install.',
-			svgPaths: ['M10 8v3a1 1 0 0 0 1 1h3', 'M14 8v8']
-		}
-	];
+	import { Steps } from '@/utils/constants.js';
 </script>
 
-<section
-	transition:fly={{ y: 50, duration: 500 }}
-	class="mx-auto py-16">
+<section transition:fly={{ y: 50, duration: 500 }} class="mx-auto py-16">
 	<div class="container mx-auto max-w-5xl rounded-md bg-primary-foreground p-10">
 		<div class="md:w-2/3 lg:w-full">
 			<h2 class="my-8 text-2xl font-bold text-foreground md:text-4xl">How to start?</h2>
@@ -76,7 +43,7 @@
 		<div
 			class="mt-16 grid divide-x divide-y divide-slate-700 overflow-hidden rounded-3xl border border-slate-700 text-slate-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4"
 		>
-			{#each steps as step}
+			{#each Steps as step}
 				<div
 					class="group relative bg-secondary backdrop-blur-md transition hover:z-[1] hover:shadow-2xl hover:shadow-slate-600/10"
 				>

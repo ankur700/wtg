@@ -11,9 +11,7 @@
 	<div class="container">
 		<div class="-mx-4 flex flex-wrap items-center">
 			<div class="w-full px-4">
-				<div
-					class="hero-content mx-auto max-w-[780px] text-center"
-				>
+				<div class="hero-content mx-auto max-w-[780px] text-center">
 					<h1
 						class="mb-6 text-3xl font-bold leading-snug text-secondary-foreground sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]"
 					>
@@ -58,9 +56,7 @@
 						<p class="mb-4 text-center text-base font-medium text-foreground">
 							Built with latest technology
 						</p>
-						<div
-							class="flex items-center justify-center gap-4 text-center"
-						>
+						<div class="flex items-center justify-center gap-4 text-center">
 							<a
 								href="https://github.com/TailGrids/play-tailwind/"
 								class="text-foreground duration-300 ease-in-out hover:text-foreground"
@@ -123,5 +119,3 @@
 		</div>
 	</div>
 </section>
-
-

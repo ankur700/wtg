@@ -75,7 +75,7 @@
 
 {@render children()}
 
-<footer class="mx-auto max-w-5xl bg-primary-foreground px-8 ">
+<footer class="mx-auto max-w-5xl bg-primary-foreground px-8">
 	<div class="mx-auto w-full max-w-screen-xl p-4">
 		<div class="sm:flex sm:items-center sm:justify-between">
 			<span class="text-sm text-foreground sm:text-center"

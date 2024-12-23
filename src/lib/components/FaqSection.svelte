@@ -1,28 +1,15 @@
 <script>
 	import FAQ from '@/components/FAQ.svelte';
-	import * as Accordion from '@/components/ui/accordion';
+	import { Root } from '@/components/ui/accordion';
 	import { fly } from 'svelte/transition';
-
-	const FAQS = [
-		{
-			id: 1,
-			title: 'How can i generate block themes?',
-			content: "Currently we don't have such feature, but we are working on it."
-		},
-		{
-			id: 2,
-			title: 'My website is not working. What should I do?',
-			content:
-				'Check if you have included all required files when generating theme including any external library files like bootstrap, swiper etc. If you have included all required files, then please contact us. We will look into it.'
-		}
-	];
+	import { FAQS } from '@/utils/constants.js';
 </script>
 
 <section
 	transition:fly={{ y: 50, duration: 500 }}
-	class=" relative overflow-hidden pt-16 min-h-screen"
+	class=" relative min-h-screen overflow-hidden pt-16"
 >
-	<div class="container mx-auto max-w-5xl rounded-md bg-background p-10">
+	<div class="container mx-auto max-w-5xl rounded-md bg-primary-foreground p-10">
 		<div class="-mx-4 flex flex-wrap">
 			<div class="w-full px-4">
 				<div class="mx-auto mb-[60px] max-w-[520px] text-center">
@@ -40,11 +27,11 @@
 		</div>
 		<div class=" mx-auto flex max-w-2xl flex-wrap">
 			<div class="w-full">
-				<Accordion.Root type="single">
+				<Root type="single">
 					{#each FAQS as faq}
 						<FAQ title={faq.title} content={faq.content} id={faq.id} />
 					{/each}
-				</Accordion.Root>
+				</Root>
 			</div>
 		</div>
 	</div>

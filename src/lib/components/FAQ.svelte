@@ -1,11 +1,11 @@
 <script>
-	import * as Accordion from '$lib/components/ui/accordion';
+	import { Item, Content, Trigger } from '$lib/components/ui/accordion';
 	let { title, content, id } = $props();
 </script>
 
-<Accordion.Item value={`item-${id}`}>
-	<Accordion.Trigger>{title}</Accordion.Trigger>
-	<Accordion.Content>
+<Item class="text-lg" value={`item-${id}`}>
+	<Trigger>{title}</Trigger>
+	<Content class="text-sm">
 		{content}
-	</Accordion.Content>
-</Accordion.Item>
+	</Content>
+</Item>
