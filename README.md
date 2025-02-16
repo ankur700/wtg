@@ -43,14 +43,36 @@ This project provides a tool to convert HTML templates into fully functional Wor
 
 ## Usage
 
-To use the HTML Template to WordPress Theme Generator, follow these steps:
+To get started quickly, follow the steps below to generate a classic WordPress theme. Note that you will still need to convert your navigation menu and any other customizations. For more information, check the WordPress documentation.
 
-1. Prepare your HTML template files.
-2. Run the generator:
-   ```sh
-   npm run generate --template=/path/to/your/html/templates
+1. **Create your HTML template**: Structure it like this:
    ```
-3. The generated WordPress theme will be available in the `dist` directory.
+   template folder
+   ├── index.html
+   ├── main.css
+   ├── main.js
+   └── assets folder
+       ├── additional css files
+       └── additional js files
+   ```
+
+2. **Prerequisite**: 
+   - Remove any loading screens from the `index.html` file.
+   - Optionally, remove the links to CSS and JS files from the `index.html` file.
+   - Stylesheets and scripts loaded from CDNs should be downloaded in advance.
+
+3. **Upload**:
+   - Head to the generate theme page.
+   - Upload your `index.html` file, `main.css` file, `main.js` file, and other CSS and JS files (custom JS libraries and custom CSS libraries files) according to the input label.
+
+4. **Convert**:
+   - Generate your WordPress theme by clicking the generate button.
+   - Download the theme zip file.
+
+5. **Install**:
+   - Install your WordPress theme by opening the WordPress admin panel.
+   - Click Appearance -> Themes and click the Upload button.
+   - Select the theme zip file and click Install.
 
 ## Demo
 
